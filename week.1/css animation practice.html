@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #ball{
+                width: 50px;
+                height: 50px;
+                background: rgb(251, 165, 238);
+                position: absolute;
+                border-radius: 70%;
+                animation-name: bounce;
+                animation-iteration-count: 6;
+                animation-timing-function: linear;
+                animation-duration: 3s;
+            }
+            
+            @keyframes bounce{
+                0% {
+                 top: 0px;left:0px;
+                }
+                25%{
+                    left:100px; top: 0px;
+                }
+                50%{ top:100px; left:100px
+
+                }
+            
+                75% {
+                    top:100px; left:00px;
+                }
+                100%{top:0px; left:0px; }
+               
+            }
+        </style>
+    </head>
+    <body>
+        <div id="ball"></div>
+    </body>
+</html>
+
+
+
+
+
+
+
