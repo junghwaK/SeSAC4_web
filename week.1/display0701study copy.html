@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            div{
+                width:"200";
+                height:"200";
+                display: block;
+                transform: skewY(10deg)
+            }
+            .div1 {  z-index: 3;
+                position: relative;
+                top:300px;
+               
+            }
+            .div2 {
+                z-index: 2;
+                position: absolute;
+                top: 150px;
+                left:220px;
+                width:100px;
+            
+            }
+            .div3{
+                z-index: 1;
+                position: absolute;
+                left:450px;
+                top: 150px;
+
+            }
+            img{width:"200"; height:"150";}
+
+        </style>
+    </head>
+    <body>
+ 
+
+   <div class="div1">  <img   src="C:\Users\user\Desktop\photo\0058.jpg"></div>
+   <div class="div2"><img  src="C:\Users\user\Desktop\photo\0701.jpg"></div>
+   <div class="div3">  <img   src="C:\Users\user\Desktop\photo\0058.jpg"></div>
+   
+  </div>
+    </body>
+</html>
