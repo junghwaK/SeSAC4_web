@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <style>
+            div { background-color: pink; }
+            p { background-color: aqua; }
+            .text{ color: brown;}
+        </style>
+        <script>
+            function addNode(){
+                var p1 = document.createElement("p");
+                var div1 = document.getElementById("div1");
+
+                p1.innerText = "p태그입니다.";
+                p1.className = "text";
+                p1.style = "text-align:center;";
+
+                var img = document.createElement("img");
+                img.src = "../img/12307.jpg";
+                img.width = 100;
+                div1.appendChild(img);
+                div1.appendChild(p1);
+
+                
+            }
+            function Change(){
+                document.write("<h1>what</h1>");
+            }
+            function removeNode(){
+                var div1 = document.getElementById("div1");
+                var child = document.getElementsByClassName("text");
+                console.log( child[0] );
+                div1.removeChild(child[0]);
+            }
+        </script>
+    </head>
+
+    <body>
+        <div id="div1" >div1</div>
+        <div id="div2" >div2</div>
+
+        <button type="button" onclick="addNode();">삽입</button>
+        <button type="button" onclick="Change();">변경</button>
+        <button type="button" onclick="removeNode();">삭제</button>
+    </body>
+</html>

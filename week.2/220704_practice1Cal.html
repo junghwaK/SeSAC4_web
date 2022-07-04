@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>calculator</title>
+        <meta charset="UTF-8">
+        <script>
+            function calculate() {
+                    var number1 = Number(document.getElementById("number1").value);
+                    var number2 = Number(document.getElementById("number2").value);
+                    var calculate = document.getElementById("op").value;
+                    var result;
+                    
+                    if(calculate == "+"){
+                        result = number1+number2;
+                    }else if(calculate == "-"){
+                        result = number1-number2;
+                    }else if(calculate == "*"){
+                        result = number1*number2;
+                    }else if(calculate == "/"){
+                        result = number1/number2;
+                    }
+                    document.getElementById("result").value = result;
+            }
+            
+            function reset(){
+                document.getElementById("number1").value = "";
+                document.getElementById("number2").value = "";
+                document.getElementById("op").value = "";
+                document.getElementById("result").value = "";
+            }
+
+   
+        </script>
+    </head>
+    <body>     
+        값1: <input type="text" id="number1"><br>
+        값2: <input type="text" id="number2"><br>
+        연산자: <input type="text" id="op"><br>
+        결과: <input type="text" id="result"><br>
+        <br>                            
+        <input type="button" value="계산하기" onclick="calculate()">
+        <input type="button" value="초기화" onclick="reset()">
+  
+
+    </body>
+</html>
