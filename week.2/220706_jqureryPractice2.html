@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="../jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+        <link rel="stylesheet" href="../jquery-ui-1.13.1.custom/jquery-ui.css">
+       
+      
+       <style>
+      div {
+        width: 100;
+        height: 100;
+      }
+      div:hover{
+        cursor: pointer;
+      }
+      .red {
+        background-color: red;
+      }
+      .orange {
+        background-color: orange;
+      }
+      .yellow {
+        background-color: yellow;
+      }
+      .green {
+        background-color: green;
+      }
+      .blue {
+        background-color: blue;
+      }
+      .purple {
+        background-color: purple;
+      }
+    </style>
+    <script>
+        var colors = ['red', 'orange', 'yellow','green','blue','purple'];
+      function changeColor(){
+       var now = ( $("div").attr("class") );
+       var i = colors.indexOf(now);
+    
+        if ( i == colors.length - 1 ) $("div").switchClass(now, colors[0]);
+       $("div").switchClass(now, colors[i+1]);
+        // if ( $( "div" ).hasClass("red")) $("div").switchClass("red", "orange");
+        // else if ( $( "div" ).hasClass("orange")) $("div").switchClass("orange", "yellow");
+        // else if ( $( "div" ).hasClass("yellow")) $("div").switchClass("yellow", "green");
+        // else if ( $( "div" ).hasClass("green")) $("div").switchClass("green", "blue");
+        // else if ( $( "div" ).hasClass("blue")) $("div").switchClass("blue", "purple");
+      }
+    </script>
+  </head>
+  <body>
+    <div id="div1" class="red" onclick="changeColor();"></div>
+  </body>
+</html>

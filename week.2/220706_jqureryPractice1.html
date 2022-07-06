@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="../jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+        <link rel="stylesheet" href="../jquery-ui-1.13.1.custom/jquery-ui.css">
+       <script>                   
+        function change( fruit ){
+            $("img").attr("src", "../img/" + fruit + ".jpg");
+        }
+
+     
+       
+       </script>
+           
+    </head>
+    <body>
+         
+        <img width="500" height="500">
+        <button type="button" onclick="change('apple')">사과</button>
+        <button type="button" onclick="change('banana')">바나나</button>
+        <button type="button" onclick="change('grapes')">포도</button>
+        <button type="button" onclick="change('ppp')">복숭아</button>    
+      
+    </body>
+</html>
+
+
