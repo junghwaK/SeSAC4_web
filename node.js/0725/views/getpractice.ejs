@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+        
+        <title> Join.ejs</title>
+       
+        <style>
+           h1 {
+                text-align: center;
+            }
+            input:hover {
+                background-color: rgb(241, 212, 17);
+            }
+            fieldset{ 
+                background:linear-gradient(rgb(247, 201, 48), rgb(101, 35, 20));
+                border-radius: 10px;
+                color : white;
+                padding : 10px;
+            }
+            fieldset *{
+                margin : 4px;
+            }
+
+            button {
+                position: absolute;
+                left: 45%;
+                
+            }
+        </style>
+        
+    </head>
+
+    <body>
+        <form action="receive" method="POST">
+            <h1>회원가입</h1>
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    
+                    <fieldset>
+                        <legend>**이름/아이디 필수기재**</legend>
+                    <label>
+                        이름  
+                        <input type="text" name="name" placeholder="이름" required>
+                    </label> <br>
+                    <label>
+                        아이디  
+                        <input type="text" name="Id" placeholder="아이디" required>
+                    </label><br>
+
+                    <label>
+                        비밀번호  
+                        <input type="password" name="Password" placeholder="비밀번호" required>
+                    </label><br>
+
+                    <label>프로필
+                        <input type="file" name="Profile" type="button" class="btn btn-warning" value="프로필"> 
+
+                    </label>
+                    <br>
+                
+                        성별
+                        <input type="radio" name="gender" id="gender_1" value="남" required>
+                        <label for="gender_1">남자</label>
+                        <input type="radio" name="gender" id="gender_2" value="여" required>
+                        <label for="gender_2">여자</label>             
+                    <br>
+                    <label>
+                        생년월일
+                    
+                    <select name="year">
+                        <% for (var i=1950; i<2023; i++) { %>
+                            <option value="<%=i %>"><%=i %></option> 
+                        <% } %>                   
+                        </select>
+                        년
+                    </label>  
+            
+                <label>
+                    <select name="month">
+                        <% for (var i=1; i<13; i++) { %>
+                            <option value="<%=i %>"><%=i %></option> 
+                        <% } %>                
+                        </select>
+                        월
+                    </label>
+
+                <label>
+                    <select name="day">
+                        <% for (var i=1; i<32; i++) { %>
+                            <option value="<%=i %>"><%=i %></option> 
+                        <% } %>                
+                        
+                        </select>
+                        일     
+                    </label>
+
+                    <br>
+
+                    <label>
+                        관심사                                    
+                        <input type="checkbox" name="interest" value="여행">여행
+                        <input type="checkbox" name="interest" value="패션">패션
+                        <input type="checkbox" name="interest" value="음식">음식
+                        <input type="checkbox" name="interest" value="기타">기타
+                        <input type="text" name="interest" placeholder="자유롭게 써주세요">
+                        <br> 
+                    </label>  
+
+                    </select>
+                
+                
+                    
+                    <br>
+                    </fieldset>
+                    <br>
+                    <button type="" class="btn btn-warning" >회원가입</button>
+                </div>
+                <div class="col-4"></div>
+            </div>
+        </form>
+    </body>
+</html>
