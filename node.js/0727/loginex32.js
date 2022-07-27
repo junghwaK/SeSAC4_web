@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 8000;
+const port = 8080;
 const bodyParser = require("body-parser");
 const fs = require("fs").promises;
 
@@ -10,7 +10,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.get("/", function(req, res) {
-    res.render("axioslogin34");
+    res.render("loginex32");
 });
 
 
@@ -22,12 +22,14 @@ app.post("/receive", function(req, res) {
         const {id, password} = req.body;
         if (data[0] == id && data[2] == password) {
             // console.log("로그인 성공");
-            res.send(true);
-            // res.send( "로그인 성공")
+            
+            // res.send(true);
+            res.send({msg: "로그인 성공"})
         }
         else {
             // console.log("아이디 혹은 비밀번호가 틀렸습니다.");
-            res.send(false);
+            // res.send(false);
+            res.send({msg: "아이디 혹은 비밀번호가 틀렸습니다."})
         }
     })
 });
