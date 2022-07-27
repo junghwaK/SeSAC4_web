@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 8080
+const port = 8000;
 const bodyParser = require("body-parser");
 
 app.set("view engine", "ejs");
@@ -9,21 +9,18 @@ app.use( express.urlencoded({extended: true}));
 app.use( bodyParser.json() );
 
 app.get("/", function(req, res){
-    res.render("index");
+    res.render("axiospractice33");
 });
 
 app.get("/receive", function(req,res){
-    console.log(req.body);
-    console.log(req.query);
-    res.render("receive", req.query);
+    console.log( req.query );
+    let message = req.query.name +"님, 회원가입 성공";
+   res.send( message );
 })
 
-app.post("/receive", function(req,res){
-    console.log(req.body);
-    res.render("receive", req.body);
-})
 
 app.listen(port, ()=>{
     console.log("server Port : ", port );
 })
+
 

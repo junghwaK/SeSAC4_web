@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>Axios</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+        <script>
+            function sendGet(){
+                axios({
+                    method: "GET",
+                    url: "http://localhost:8080/receive",
+                    params: { 
+                        name: "codee"
+                    }
+                }).then((a) => {return a.data;})
+                .then((d) =>{
+
+                 alert(d.message);
+            });
+        }
+        function sendForm(){
+            var form = document.getElementById("form_info");
+            console.log( form );
+
+            var result = form.checkValidity();
+            if (!result){
+                form.reportValidity();
+                
+                
+                return false;
+            }
+            console.log( result );
+            // console.log( form.name.value);
+            // console.log( form.age.value);
+            // axios({
+            //         method: "GET",
+            //         url: "http://localhost:8080/receive",
+            //         data: { 
+            //             name: form.name.value
+            //         }
+            //     }).then((a) => {return a.data;})
+            //     .then((d) =>{
+            //      alert(d.message);
+            // });
+        }
+        </script>
+
+    </head>
+    <body>
+        <form action="/receive">
+            <button type="button" onclick="sendPost();">버튼</button>
+        </form>
+        <button onclick="sendGet();">sendGet</button>
+        <button onclick="sendPost();">sendPost</button>      
+        
+        <form id="form_info">
+            <input type="text" name="name" required>
+            <input type="text" name="age" required>
+            <button type="button" onclick="sendForm();">sendForm</button>  
+        </form>
+   </body>
+</html>
+
+
+<!-- 
+/**
+   To. 정화님
+
+   정화는 세상에서 제일 나쁜 오류가 무엇인지 아시나요?
+   바로 오타랍니다.
+   d.a.t.a 데이터를 보낼 때는 data라고 쓰는 거예요^^ ^^ ^^ ^^ ^^ ^^ ^^
+   codee 이름은 데이트 말고 데이터에 보내주세요 😊
+
+   From. 규리쌤
+**/ -->

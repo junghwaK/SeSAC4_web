@@ -13,14 +13,17 @@ app.get("/", function(req, res){
 });
 
 app.get("/receive", function(req,res){
-    console.log(req.body);
-    console.log(req.query);
-    res.render("receive", req.query);
+    console.log( req.query );
+    let name = req.query.name;
+    let msg = req.query.name +"GET 안녕"
+   res.send({name: name, message: msg });
 })
 
 app.post("/receive", function(req,res){
     console.log(req.body);
-    res.render("receive", req.body);
+    let name = req.body.name;
+    let msg = req.body.name + "안녕";
+    res.send({name: name, message: msg});
 })
 
 app.listen(port, ()=>{
