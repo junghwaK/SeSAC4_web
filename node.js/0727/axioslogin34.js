@@ -22,12 +22,13 @@ app.post("/receive", function(req, res) {
         const {id, password} = req.body;
         if (data[0] == id && data[2] == password) {
             // console.log("로그인 성공");
-            res.send(true);
-            // res.send( "로그인 성공")
+            // res.send(true);
+            res.send( "로그인 성공");
         }
         else {
             // console.log("아이디 혹은 비밀번호가 틀렸습니다.");
-            res.send(false);
+            // res.send(false);
+            res.send( "아이디 혹은 비밀번호가 틀렸습니다.");
         }
     })
 });

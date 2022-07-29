@@ -19,7 +19,7 @@ const upload = multer({
 
 app.set("view engine", "ejs");
 app.use( express.static( "uploads" ));
-//& 동적 이미지는 "uploads" 폴더에서 가져온다. 
+//& 정적(static) 이미지는 "uploads" 폴더에서 가져온다. 
 app.use( express.urlencoded({extended: true}));
 app.use( bodyParser.json() );
 
@@ -35,6 +35,7 @@ app.post("/receive", upload.single('userfile'), function(req,res){
     console.log(req.file);
     res.render("receive", {filename: req.file.filename});
 })
+//폼전송해서 넘어감. 동적폼 전송을 하지않았기 때문에 /receive 경로임. 그리고 아래의 "receive"는 내가 설정한ejs 파일이름임. 내마음대로조정가능
 
 
 app.listen(port, ()=>{

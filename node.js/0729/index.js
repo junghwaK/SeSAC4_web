@@ -38,12 +38,16 @@ app.post("/upload/array", upload.array('userfile'),  function(req,res){
     console.log(req.files);
     res.send("Upload Array");
 });
+//upload.array를 사용하면 input여러개 만들지 않고 여러개의 파일을 -여러개 선택- 업로드 할 수 있다. 
+// 속성에 멀티플을 줘서 여러개를 올려줄 수 있다.
 
 app.post("/upload/fields", upload.fields([{name:'userfile'},{name:'userfile2'},{name:'userfile3'}]),  function(req,res){
     console.log(req.body);
     console.log(req.files);
     res.send("Upload Array");
 });
+//upload.fields은 input태그를 여러개 사용해서 올린다. ex)동사무소등의 공공기관 서류올릴때 따로따로 올리는거 사용
+
 
 function test(req, res, next){
     console.log( "test 함수" );

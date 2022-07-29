@@ -17,11 +17,14 @@ app.get("/receive", function(req,res){
     console.log(req.query);
     res.render("receive", req.query);
 })
+// get 은 query씀
+
 
 app.post("/receive", function(req,res){
     console.log(req.body);
     res.render("receive", req.body);
 })
+//post는 body 써준다. 
 
 app.listen(port, ()=>{
     console.log("server Port : ", port );

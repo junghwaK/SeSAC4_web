@@ -52,11 +52,14 @@
                 })
                 .then((d) =>{
                     var p = document.querySelector("p");
-                    if (d) { 
-                        p.innerText = "로그인 성공";
-                    } else {
-                        p.innerText = "로그인 실패";
-                    }
+                    console.log(d);
+                    p.innerText = d;
+
+                    // if (d) { 
+                    //     p.innerText = "로그인 성공";
+                    // } else {
+                    //     p.innerText = "로그인 실패";
+                    // }
                 });
             }
         </script>
