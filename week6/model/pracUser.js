@@ -1,13 +1,9 @@
 const fs = require("fs").promises;
 
 exports.post_user = function( data ){
-    console.log( data );
-    fs.writeFile('./in22fo.txt', data.name + "//" + data.Id + "//" + data.Password + "//" + data.age , err => {
-        if (err) {
-            console.error(err)
-            return
-        }
-    }) 
+    console.log( "data : ", data );
+    const {name, Id, Password, age} = data;
+    fs.appendFile('./info.txt', name + "//" + Id + "//" + Password + "//" + age + '151515\n'); 
 }
 //파일은 쓸 수있는데 정보를 전달해주어야 쓰겠지.
 
