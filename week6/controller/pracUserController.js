@@ -40,9 +40,9 @@ exports.post_login = async (req,res) => {
 
     var info = data.split("//");
 
-    if ( info[0] != req.body.Id) {
+    if ( info[1] != req.body.Id) {
         res.send("아이디 다름");
-    }else if ( info[1] != req.body.Password){
+    }else if ( info[2] != req.body.Password){
         res.send("비밀번호가 다름");
     }else{
         res.send("로그인성공!");
@@ -50,3 +50,20 @@ exports.post_login = async (req,res) => {
     console.log( data );
    
 }
+
+
+
+
+        // const {id, password} = req.body;
+        // if (data[0] == id && data[2] == password) {
+            // console.log("로그인 성공");
+            
+            // res.send(true);
+        //     res.send({msg: "로그인 성공"})
+        // }
+        // else {
+            // console.log("아이디 혹은 비밀번호가 틀렸습니다.");
+            // res.send(false);
+        //     res.send({msg: "아이디 혹은 비밀번호가 틀렸습니다."})
+        // }
+  
