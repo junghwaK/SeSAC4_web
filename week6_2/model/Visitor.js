@@ -23,3 +23,25 @@ exports.insert = ( name, comment, cb ) => {
     });
 }
 
+exports.get_visitor = (id, cb) => {
+    cnn.query( `SELECT * FROM visitor where id = ${id} limit 1;`, (err, rows) => {
+        if ( err ) throw err;
+       
+        cb( rows );
+    });
+}
+
+exports.update = (data, cb) => {
+    let sql = `UPDATE visitor SET name='${data.name}', comment='${data.comment}' WHERE id=${data.id}`;
+    cnn.query( sql, ( err, rows)=> {
+        if (err) throw err;
+        cb(rows);
+    })
+}
+    
+exports.delete = (id, cb) => {
+    cnn.query( `DELETE FROM visitor WHERE id=${id}`, (err, rows)=> {
+        if (err) throw err;
+        cb(rows);
+    });
+}
