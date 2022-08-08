@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title> Join.ejs</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>      
+        
+        <script>
+            function writeComment(){
+                var form = document.getElementById("form_comment");
+                axios({
+                    method: 'post',
+                    url: 'http://localhost:8080/user/register',
+                    data:{
+                        id: form.Id.value,
+                        password: form.Password.value,
+                        name: form.name.value,                        
+                        age: form.age.value
+                    }
+                })
+                .then((rep) => {
+                    return rep.data;
+                }).then((data) => {
+                    alert(data.name + "님 환영합니다.");
+                })
+            }
+        </script>
+        
+    </head>
+
+    <body>
+        <form id="form_comment">
+            <h1>회원가입</h1>
+            <fieldset>
+                <legend>**이름/아이디 필수기재**</legend>
+            
+            <label>
+                아이디  
+                <input type="text" name="Id" placeholder="아이디" required>
+            </label><br>
+
+            <label>
+                비밀번호  
+                <input type="password" name="Password" placeholder="비밀번호" required>
+            </label><br>
+
+            <label>
+                이름  
+                <input type="text" name="name" placeholder="이름" required>
+            </label> 
+            <br>
+            <label>
+                나이  
+                <input type="text" name="age" placeholder="나이" required>
+            </label>               
+            <br>
+            </fieldset>
+            <br>
+            <button type="button" onclick="writeComment();" >회원가입</button>
+        </form>
+    </body>
+</html>
