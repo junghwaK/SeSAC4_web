@@ -65,8 +65,8 @@ exports.patch_comment = (req,res) => {
         name : req.body.name,
         comment : req.body.comment
     };
-    //첫번째로 내가 바꾸고자하는 내용을 적어준다. newOgj, 그리고 조건
-    //updqte visitor ser nmae=req.body.namem, comment : req.body.comment where id = req.body.id;
+    //첫번째로 내가 바꾸고자하는 내용을 적어준다. newObj, 그리고 조건
+    //update visitor ser name=req.body.namem, comment : req.body.comment where id = req.body.id;
     //아래의 문법만 잘 기억하면 업데이트는 쉽다. 
     models.Visitor.update( newObj, {where: { id: req.body.id}})
     .then((result) =>{
