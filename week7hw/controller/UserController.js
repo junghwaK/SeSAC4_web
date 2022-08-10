@@ -1,10 +1,13 @@
-const User = require("../model/User");
+// const User = require("../model/User");
+const models = require("../model");
 
 exports.main = (req,res) => {
+    // index.ejs 파일 불러오기
     res.render("index");
 }
 
 exports.post_register = (req,res) => {
+    //{ id: , name:, pw:, email: }
     console.log( req.body );
     User.insert(req.body, function(result) {
         console.log(result);
