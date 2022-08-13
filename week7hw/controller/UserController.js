@@ -61,3 +61,19 @@ exports.profile = (req, res) => {
         res.render("profile", {data: result[0]});
     });
 }
+
+exports.edit = (req, res) => {
+    // {id: , name: , pw: , email: }
+    console.log(req.body);
+    User.update(req.body, function(result) {
+        console.log(result);
+        res.send("회원정보가 수정 되었습니다.");
+    });
+}
+
+exports.delete = (req, res) => {
+    User.delete(req.body, function(result) {
+        console.log(result);
+        res.send("회원 탈퇴되었습니다.");
+    });
+}

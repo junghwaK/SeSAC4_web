@@ -11,5 +11,7 @@ router.post("/login", user.Login);
 router.post("/profile", user.post_login);
 router.post("/profile", user.profile);
 //로그인 성공시 일반 폼 전송 부분
+router.patch("/edit", user.edit);
+router.delete("/delete", user.delete);
 
 module.exports = router;
