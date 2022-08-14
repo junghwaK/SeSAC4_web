@@ -23,10 +23,12 @@ const server = http.createServer((req, res) =>{
         return req.on('end', () => {
             const parsedBody = Buffer.concat(body).toString();
             const message = parsedBody.split('=')[1];
-            fs.writeFileSync('message.txt', message, err => {
+            fs.writeFile('message.txt', message, err => {
                 res.statusCode = 302;
                 res.setHeader('Locstion', '/');
                 return res.end();
+                //위의 응답은 파일 작업이 완료된 경우에만 전송되어야 하기 때문에
+                //일반 응답코드를 거기로 옮기겠대 거기가..어디죠?
             });
         });  
     }
