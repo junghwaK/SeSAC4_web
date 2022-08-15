@@ -6,8 +6,8 @@
         
         <script>
             //alert를 띄우기 위한 동적 폼 전송 이용.
-            function writeComment(){
-                var form = document.getElementById("form_comment");
+            function register(){
+                var form = document.getElementById("form_register");
                 axios({
                     method: 'post',
                     url: 'http://localhost:8080/user/register',
@@ -30,36 +30,6 @@
                 })
             }
 
-            //db에서 정보를 검색해 로그인 가능하게 하기
-            function login(){
-                var form = ducument.getElementById("login_form");
-
-                axios({
-                    method: "post",
-                    url: "http://localhost:8080/user/login",
-                    data: {
-                        id: form.Id.value,
-                        password: form.Password.value,
-                    }
-                }).then((rep) => {
-                    return rep.data;
-                }).then((data) => {
-                    //data=로그인에 성공했을 경우 true, 실패했을경우 false
-                    //실패했을때
-                    if(!data) {
-                        let html = "<p>아이디 또는 비밀번호가 틀렸습니다.</p>";
-                        $("div").html(html);
-                    //성공했을때    
-                    } else{
-                        alert("로그인 성공");
-                        let form_submit = document.getElementById("form_submit");
-                        //숨겨진 input값에 input 창에 입력된 값 넣어주기
-                        form_submit.Id.value = form.Id.value;
-                        //홈 전송하기 -> /user/profile로
-                        form_submit.submit();
-                    }
-                })
-            }
         </script>
         
     </head>
@@ -92,7 +62,7 @@
             <br>
             </fieldset>
             <br>
-            <button type="button" onclick="writeComment();" >회원가입</button>
+            <button type="button" onclick="register();" >회원가입</button>
         </form>
     </body>
 </html>

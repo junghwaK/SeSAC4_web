@@ -43,7 +43,7 @@ const cnn = mysql.createConnection({
 
 
 
-exports.insert = (data, cb) => {
+exports.register = (data, cb) => {
     const {id, password, name, age} = data;
     var sql = `INSERT INTO user VALUES ("${id}", "${password}", "${name}", ${age})`
     cnn.query( sql, (err, rows) => {
@@ -56,6 +56,7 @@ exports.insert = (data, cb) => {
 exports.login = (data, cb) => {
     //id와 pw가 일치하는 정보 가져온다.(id는 primary key로 중복이 안되므로 하나밖에 없다.)
     var sql = `SELECT * FROM user WHERE id = "${data.id}" and password = "${data.password}"`
+    //user테이블에서  id중에서 data.id /password = data.password인거임
     cnn.query(sql, (err, rows) => {
         if(err) throw err;
         cb( rows );
@@ -75,16 +76,16 @@ exports.get_user = (data, cb) => {
 }
 
 exports.update = (data, cb) =>  {
-    let sql = `UPDATE user SET name = "${data.name}", pw = "${data.Password}", age = "${data.age}" WHERE id = "${data.Id}"`;
+    let sql = `UPDATE user SET name = "${data.name}", password = "${data.password}", age = "${data.age}" WHERE id = "${data.id}"`;
     cnn.query(sql, (err, rows) => {
         if (err) throw err;
-        cb( rows );
+        cb( rows ); // -> function ooo(result) -> cb(rows)
     })
 }
 
 exports.delete = (data, cb) =>  {
     //id가 data.id인 정보를 지운다
-    let sql = `DELETE from user WHERE id = "${data.Id}"`;
+    let sql = `DELETE from user WHERE id = "${data.id}"`;
     cnn.query(sql, (err, rows) => {
         if (err) throw err;
         cb( rows );
