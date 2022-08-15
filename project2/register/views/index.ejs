@@ -7,7 +7,7 @@
         <script>
             //alert를 띄우기 위한 동적 폼 전송 이용.
             function register(){
-                var form = document.getElementById("form_register");
+                let form = document.getElementById("form_register");
                 axios({
                     method: 'post',
                     url: 'http://localhost:8080/user/register',
@@ -15,7 +15,8 @@
                         id: form.Id.value,
                         password: form.Password.value,
                         name: form.name.value,                        
-                        age: form.age.value
+                        age: form.age.value,
+                        profile: form.picture.value
                     }
                     //input창에 입력된 4개의 정보를 데이터로 보내준다. 
                 })
@@ -29,6 +30,12 @@
                     window.location.href = "/user/login";
                 })
             }
+
+            function chooseProfile(img){
+                let form = document.getElementById("form_register");
+                console.log(img);
+                form.picture.value = img;
+            }  
 
         </script>
         
@@ -62,6 +69,13 @@
             <br>
             </fieldset>
             <br>
+            <img src="img1.png" style="width: 100" onclick="chooseProfile('img1')">
+            <img src="img2.png" style="width: 100" onclick="chooseProfile('img2')">
+            <img src="img3.png" style="width: 100" onclick="chooseProfile('img3')">
+            <img src="img4.png" style="width: 100" onclick="chooseProfile('img4')">
+            <img src="img5.png" style="width: 100" onclick="chooseProfile('img5')">
+
+            <input type="hidden" name="picture"> <br>
             <button type="button" onclick="register();" >회원가입</button>
         </form>
     </body>

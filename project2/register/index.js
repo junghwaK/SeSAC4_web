@@ -6,6 +6,8 @@ const bodyParser = require("body-parser");
 app.set("view engine", "ejs");
 app.use(express.urlencoded({extended: true}));
 app.use( bodyParser.json() );
+app.use(express.static('public'));
+//퍼블릭 폴더에 정적파일 관리할거야.
 
 const router = require("./routes");
 app.use('/user', router);

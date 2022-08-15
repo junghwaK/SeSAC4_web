@@ -18,19 +18,19 @@ let spaceshipY = canvas.height-64
 
 function loadImage(){
     backgroundImage = new Image();
-    backgroundImage.src = "images/space.jpg";
+    backgroundImage.src = "./images/space.jpg";
 
     spaceshipImage = new Image();
-    spaceshipImage.src = "images/spaceship.png";
+    spaceshipImage.src = "./images/spaceship.png";
 
     bulletIamge = new Image();
-    bulletIamge.src = "images/bullet.png";
+    bulletIamge.src = "./images/bullet.png";
 
     enemyImage = new Image();
-    enemyImage.src ="images/enemy.png";
+    enemyImage.src ="./images/enemy.png";
 
     gameOverImage = new Image();
-    gameOverImage.src = "images/gameover.png"
+    gameOverImage.src = "./images/gameover.png"
 }
 
 
@@ -76,13 +76,13 @@ function render(){
 function main(){
     update(); //좌표값을 업데이트하고
     render(); // 그려주고  ->업뎃과 그려주는것을 반복하는것이 게임..
-    requireAnimationFrame(main);
+    // requireAnimationFrame(main);
 }
 
 
 loadImage();
 setupKeyboardListener();
-main();
+// main();
 
 
 //1. 방향키를 누르면 

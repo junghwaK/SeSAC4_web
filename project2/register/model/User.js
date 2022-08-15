@@ -1,4 +1,5 @@
 const mysql = require("mysql");
+const { profile } = require("../controller/UserController");
 const cnn = mysql.createConnection({
     host: 'localhost',
     user: 'user',
@@ -45,7 +46,7 @@ const cnn = mysql.createConnection({
 
 exports.register = (data, cb) => {
     const {id, password, name, age} = data;
-    var sql = `INSERT INTO user VALUES ("${id}", "${password}", "${name}", ${age})`
+    var sql = `INSERT INTO user VALUES ("${id}", "${password}", "${name}", ${age}, "${data.profile}")`
     cnn.query( sql, (err, rows) => {
         if (err) throw err;
         cb( rows );
