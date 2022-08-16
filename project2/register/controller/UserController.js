@@ -1,5 +1,5 @@
 // const models = require("../model"); -> 시퀄라이즈에 사용
-const User = require("../model/User");
+// const User = require("../model/User");
 
 exports.index = (req,res) => {
     // index.ejs 파일 불러오기
