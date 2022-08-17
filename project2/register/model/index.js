@@ -1,25 +1,29 @@
 const Sequelize = require("sequelize");
 
 const config = require("../config/config.json")["development"];
+//txt. 처럼 걍 .json도 쓸수있다.
 
 // const a require(../config/config.json);
 // const a {"development" : {} 
 
 const db = {};
 const sequelize = new Sequelize(
-    config.database, // sesac
-    config.username,
+    //여기s는 저위의 require(sequelize)와 다른거임
+    config.database, // "sesac"
+    config.username, // "user"
     config.password,
     config //{"host" : 'local', ...}
 );
-// Sequelize라는 객체에 input이라는 함수가 있다고 한다.면... 이해를 못했나본데? 아무튼 번거로운 작업을
-// 하지 않기위해서 아래처럼 해줘야한다. 그럼 다른곳에서 안함.
+
+//순서임. database, username,~이순서임
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 // db = {sequelize: sequelize, Sequlize: Sequelize};
 
+// model폴더안에 있는 User파일에서 내보내 준 함수를 (sequelize, Sequelize)인자를 넣어줘서 바로 실행한다.
 db.User = require("./User")(sequelize, Sequelize);
+// db = {sequelize: sequelize, Sequlize: Sequelize, User: model};
 
 
 module.exports = db;
