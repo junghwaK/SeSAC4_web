@@ -20,7 +20,7 @@ exports.register = (req,res) => {
         id: req.body.id,
         password: req.body.password,
         name: req.body.name,
-        age: req.body.age,
+        email: req.body.email,
         profile: req.body.profile
     }
     models.User.create(object)
@@ -106,4 +106,19 @@ exports.delete = (req, res) => {
     //     console.log(result);
     //     res.send("회원 탈퇴되었습니다.");
     // });
+}
+
+
+//중복확인
+exports.overlap = (req,res) => {
+    //{id: , pw: }
+    models.User.findOne({where: {id: req.body.id}})
+    .then((result) => {
+        console.log(result);
+        if (result == null) {
+            res.send("사용할 수 있는 아이디입니다.");
+        } else {
+            res.send("이미 존재하는 아이디입니다.");
+        }
+    })
 }

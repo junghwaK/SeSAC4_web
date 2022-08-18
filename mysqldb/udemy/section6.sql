@@ -43,3 +43,4 @@ DELETE FROM shirts;
 DROP table shirts;
 
 show databases;
+show tables;

@@ -2,8 +2,9 @@ CREATE database shooting;
 use shooting;
 
 CREATE TABLE game (
-ID VARCHAR(100) NOT NULL primary key,
-name VARCHAR(100) NOT NULL,
-password VARCHAR(100) NOT NULL,
-nickname VARCHAR(100) NOT NULL
+id VARCHAR(20) NOT NULL primary key,
+password VARCHAR(20) NOT NULL,
+name VARCHAR(20) NOT NULL,
+profile VARCHAR(20),
+gamerank INT
 );

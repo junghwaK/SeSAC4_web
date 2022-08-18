@@ -10,14 +10,22 @@
             //alert를 띄우기 위한 동적 폼 전송 이용.
             function register(){
                 let form = document.getElementById("form_register");
+
+                //유효성 검사 만족했는지에 확인->
+                let result = form.checkValidity();
+                if (!result){
+                    form.reportValidity();
+                    return false;
+                }
+                
                 axios({
                     method: 'post',
                     url: 'http://localhost:8080/user/register',
                     data:{
                         id: form.Id.value,
                         password: form.Password.value,
-                        name: form.name.value,                        
-                        age: form.age.value,
+                        name: form.name.value, 
+                        email: form.email.value,                       
                         profile: form.picture.value
                     }
                     //input창에 입력된 4개의 정보를 데이터로 보내준다. 
@@ -38,6 +46,8 @@
             //     console.log(img);
             //     form.picture.value = img;
             // } 
+
+      
         </script>
         
     </head>
@@ -46,9 +56,13 @@
         <div id="container">
             <h1>회원가입</h1>
             <form id="form_register">
-                <input type="text" name="Id" placeholder="아이디" required> <br>
-                <input type="password" name="Password" placeholder="비밀번호" required> <br>
-                <input type="text" name="name" placeholder="이름" required>         
+                <input type="text" name="Id" placeholder="아이디를 입력하세요" required> <br>
+                <!-- <button type="button" id="check" onclick="icCheck()">중복체크</button>
+                <p id="result"></p></li> -->
+             
+                <input type="password" name="Password" placeholder="비밀번호를 입력하세요" required> <br>
+                <input type="text" name="name" placeholder="이름" required>
+                <input type="email" name="email" placeholder="Email을 입력하세요" required>           
                 <br>
                 <!-- <img src="/img/img1.png" style="width: 100" onclick="chooseProfile('img1')">
                 <img src="/img/img2.png" style="width: 100" onclick="chooseProfile('img2')">
