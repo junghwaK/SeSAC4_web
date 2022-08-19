@@ -47,6 +47,7 @@ exports.login = (req,res) => {
         if (result == null) {
             res.send(false);
         } else {
+            req.session.user = req.body.id;
             res.send(true);
         }
     })
@@ -114,11 +115,10 @@ exports.overlap = (req,res) => {
     //{id: , pw: }
     models.User.findOne({where: {id: req.body.id}})
     .then((result) => {
-        console.log(result);
         if (result == null) {
-            res.send("사용할 수 있는 아이디입니다.");
+            res.send(true);
         } else {
-            res.send("이미 존재하는 아이디입니다.");
+            res.send(false);
         }
     })
 }
