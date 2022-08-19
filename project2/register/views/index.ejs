@@ -47,6 +47,15 @@
             //alert를 띄우기 위한 동적 폼 전송 이용.
             function register(){
                 let form = document.getElementById("form_register");
+
+                let result = form.checkValidity();
+
+                if(!result){
+                    form.reportValidity();
+                    return false;
+                }
+
+
                 axios({
                     method: 'post',
                     url: 'http://localhost:8080/user/register',
@@ -86,8 +95,9 @@
                 <input type="text" name="Id" placeholder="아이디" required onkeyup="checkID( this );">
                 <p id="register_text"></p>
                 <input type="password" name="Password" placeholder="비밀번호" required> <br>
-                <input type="text" name="name" placeholder="이름" required>         
+                <input type="text" name="name" placeholder="이름" required>       
                 <br>
+                <input type="email" name="email" placeholder="이메일" required> 
                 <!-- <img src="/img/img1.png" style="width: 100" onclick="chooseProfile('img1')">
                 <img src="/img/img2.png" style="width: 100" onclick="chooseProfile('img2')">
                 <img src="/img/img3.png" style="width: 100" onclick="chooseProfile('img3')">
