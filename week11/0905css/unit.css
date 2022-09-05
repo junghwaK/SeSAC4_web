@@ -1,0 +1,85 @@
+.box {
+    margin-bottom: 100px;
+}
+
+.px{
+    width: 500px;
+    height: 500px;
+    background-color: rgb(60, 187, 109);
+}
+
+.pct-parent{
+    width: 500px;
+    height: 500px;
+    background-color: aqua;
+}
+
+.pct-child{
+    width: 50%;  
+    /* 부모의 절반인 250px이 될거임 */
+    height: 50%;
+    background-color: rgb(25, 38, 38);
+}
+
+.em{
+    font-size: 2em;
+    /* 상위요소값에서 2배를 가져오겠지 */
+}
+
+.case1{
+    font-size:10px;
+}
+
+.em-3{
+    font-size: 3em;
+}
+
+.rem{
+    font-size: 2rem;
+}
+
+.vw{
+    width: 20vw;
+    height: 20vw;
+    background-color: coral;
+}
+
+.vh{
+    width: 20vh;
+    height: 20vh;
+    background-color: rgb(80, 179, 255);
+}
+
+.test{
+    font-size: 10vw;
+    /* vw는 폰트에도 적용이 가능하다 */
+}
+
+@media screen and (min-width: 768px){
+    .px{
+        /* 최소너비가 768이니까 이상일때 높이를 붙여넣셈 */
+    width: 900px;
+    height: 900px;
+    background-color: pink;
+    }
+    .test{
+        font-size: 10vw;
+    }    
+}
+
+/* @media (min-width: 768px){
+    .px{
+    background-color: yellow;
+    }
+
+@media (min-width: 768px) and (max-width:1024px){
+    .px{
+        background-color: aqua;
+    }
+}
+@media (min-width: 1025px) {
+    .px{
+        background-color: rgb(255, 17, 64);
+    }
+}
+ */
