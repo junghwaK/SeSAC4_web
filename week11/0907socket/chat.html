@@ -1,0 +1,92 @@
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
+
+    <style>
+        .chat-list{
+            background-color: skyblue;
+            width: 50%;
+            height: 50%;
+            padding: 10px;
+        }
+
+        .chat-list div div {
+            padding: 3px;
+            display: inline-block;
+        }
+
+       .my-chat div{
+            background-color: yellow;
+            margin-top: 10px;
+        
+       }
+
+       .other-chat div{
+        background-color: white;
+        margin-top: 10px;
+       }
+
+    </style>
+</head>
+
+
+<body>
+    <div id="chat-list" class="chat-list"></div>
+    <!-- 메시지 보내거나 받으면 보이는곳임 -->
+    <input type="text" id="message">
+    <button type="button" onclick="send();">SEND</button>
+    <script>  
+        var id = "";
+        var socket = io.connect();
+        socket.on("info", function(data){id = data;});
+        function send(){
+            let msg = document.getElementById("message").value;
+            // 내가 보낸밸류갖고오는게 엘리멘트바이아이디
+            socket.emit("send", {id, msg} );
+              // send라는 이벤트명으로 보낸다
+
+            document.getElementById("message").value = "";
+          
+        }
+            //emit이 뿌려주면 on이 받아준다. 
+            socket.on("newMessage", function(data){
+                // doucment 문서에서 id속성이 chat-list인 요소를 선택한다.
+                // <div id="chat-list" class="chat-list">~~~</div>
+                let chat_list = document.getElementById("chat-list");
+
+                // 요소를 새로 생성하는 거
+                // <div></div>
+                let div = document.createElement("div");
+
+                let div_chat = document.createElement("div");
+
+                // <div style="background-color:yellow;"></div>
+                // div.style.backgroundColor = "yellow";
+
+                // <div style="background-color:yellow;">{msg}</div>
+                div_chat.textContent = data.msg;
+
+                if (data.id == id){ div.classList.add("my-chat");}
+                else{div.classList.add("other-chat");}
+
+                div.appendChild(div_chat);
+
+                // <div id="chat-list" class="chat-list"> <div style="background-color:yellow;">{msg}</div> </div>
+                // appendChild : 자식 요소를 추가하는 거 ( 시작태그와 종료태그 안에 있는 요소가 자식요소 )
+                // a.appendChild( b ) -> 부모 a에 자식 b를 추가하는 거
+                chat_list.appendChild(div);
+                //자식요소로써 보내주는거임. 덮어쓰기가아니라.
+            });
+
+            socket.on("notice", function(data){
+                let chat_list = document.getElementById("chat-list");
+                let div = document.createElement("div");
+                div.textContent = data 
+
+                chat_list.appendChild(div);
+            })
+        
+    </script>
+    
+</body>
+</html>

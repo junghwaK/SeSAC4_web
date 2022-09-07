@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
+</head>
+<body>
+    <h1>HELLO WORLD!!</h1>
+
+    <button type="button" onclick="btnHello();">hello</button>
+    <button type="button" onclick="btnStudy();">study</button>
+    <button type="button" onclick="btnBye();">bye</button>
+    <h5 id="content"></h5>
+    <script>      
+        var socket = io.connect();
+        //소켓을 사용할수있는 객체가 만들어진것임.
+
+
+        function btnHello(){
+            // console.log("hello");
+            socket.emit("hello", "hello!");
+        }
+        socket.on("response", function(data){
+            var tag = document.getElementById("content");
+            tag.textContent = data;
+        });
+
+  
+
+        // function btnBye(){
+        //     console.log("bye");
+        //     socket.emit("click", "Click!!");
+        // }
+        // socket.on("clickResponse3", function(data){
+        //     console.log("response : ", data );
+        // });
+
+
+    </script>
+    
+</body>
+</html>
