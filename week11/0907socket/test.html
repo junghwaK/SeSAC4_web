@@ -9,19 +9,21 @@
 <body>
     <h1>HELLO WORLD!!</h1>
 
-    <button type="button" onclick="btnHello();">hello</button>
-    <button type="button" onclick="btnStudy();">study</button>
-    <button type="button" onclick="btnBye();">bye</button>
+    <button type="button" onclick="send('hello');">hello</button>
+    <!-- hello버튼인지 study인지 같은함수를쓰니까, 인자를 구분하는 방법으로''를써준다. -->
+    <button type="button" onclick="send('study');">study</button>
+    <button type="button" onclick="send('bye');">bye</button>
     <h5 id="content"></h5>
     <script>      
         var socket = io.connect();
         //소켓을 사용할수있는 객체가 만들어진것임.
 
 
-        function btnHello(){
+        function send(msg){
             // console.log("hello");
-            socket.emit("hello", "hello!");
+            socket.emit("send", msg);
         }
+        
         socket.on("response", function(data){
             var tag = document.getElementById("content");
             tag.textContent = data;

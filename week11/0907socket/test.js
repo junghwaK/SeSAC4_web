@@ -10,13 +10,14 @@ app.get("/", function(req,res){
     //ejs설치 안했기 때문에 센드파일. 이제이에스했으면 다른걸로..뭐였지?
 });
 
+let msg = {hello: "안녕하세요!", study: "공부합시다!", bye: "안녕히가세요!"};
 
 io.on("connection", function(socket){
     console.log("connected");
     // socket.emit("hello", "server hello");
-    socket.on("hello", function(data){
+    socket.on("send", function(data){
         console.log("client :", data);
-        socket.emit("response", "hello : 안녕하세요");
+        socket.emit("response", data + " : " + msg[data]);
     })
 });
 
