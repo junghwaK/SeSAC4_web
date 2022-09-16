@@ -10,7 +10,6 @@
 			integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
 			crossorigin="anonymous"
 		/>
-		<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="css/style.css" />
 		<title>ChatCord App</title>
 	</head>
@@ -20,7 +19,7 @@
 				<h1><i class="fas fa-smile"></i> ChatCord</h1>
 			</header>
 			<main class="join-main">
-				<form action="chat.html" id="form_chat">
+				<form action="chat.html">
 					<div class="form-control">
 						<label for="username">Username</label>
 						<input
@@ -42,31 +41,9 @@
 							<option value="Java">Java</option>
 						</select>
 					</div>
-					<div class="profile-img">
-						<img src="/img/img1.png" style="width: 50px" name="img1">
-						<img src="/img/img2.png" style="width: 50px" name="img2">
-						<img src="/img/img3.png" style="width: 50px" name="img3">
-						<img src="/img/img4.png" style="width: 50px" name="img4">
-						<img src="/img/img5.png" style="width: 50px" name="img5">
-						<img src="/img/img7.png" style="width: 50px" name="img7">
-					</div>
-					<input type="hidden" name="name" id="file_name">
-		
 					<button type="submit" class="btn">Join Chat</button>
 				</form>
 			</main>
 		</div>
-		<script>
-            $("img").on("click", function( obj ) {
-                let target = obj.currentTarget;
-                let brothers = $(target).siblings();
-             
-				let src = target.src.split("/");
-				$("#file_name").val(src.pop());
-
-                $(target).css("border", "2px solid white");
-                $(brothers).css("border", "none");
-            });
-        </script>
 	</body>
 </html>

@@ -7,6 +7,11 @@ var io = require("socket.io")(http);
 app.get("/", function(req,res){
     console.log("client");
     res.sendFile(__dirname+"/chat.html");
+    // io.on("connection", function(socket){
+    //     console.log("1 : ", socket.id);
+    //     list[socket.id] = { name: req.body.name, profile: req.body.profile };
+    //     socket.emit("profile", list[socket.id].profile );
+    // });
 });
 
 // io -> 클라이언트와의 모든 연결을 갖고 있는 친구

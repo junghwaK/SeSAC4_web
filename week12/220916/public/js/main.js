@@ -4,7 +4,7 @@ const roomName = document.getElementById('room-name');
 const userList = document.getElementById('users');
 
 //Get user name and room from URL
-const { username, room} = Qs.parse(location.search,{
+const { username, room } = Qs.parse(location.search,{
   ignoreQueryPrefix: true
 });
 
@@ -64,12 +64,3 @@ function outputUsers(users){
     ${users.map(user => `<li>${user.username}</li>`).join('')}
   `;
 }
-
-//src로 프로필은 가져왔었지만.... 시행착오를..
-// function outputUsers(img){
-  
-// }
-
-// $("img").on("click", function(obj) {
-//   let src =$(this)[0].src;
-// })
