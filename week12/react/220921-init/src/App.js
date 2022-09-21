@@ -29,13 +29,14 @@ function App() {
         </div>
       </div>
  
-      <div className='red'></div> 
-      <div className='orange'></div>
-      <div className='yellow'></div>
-      <div className='green'></div>
-      <div className='blue'></div>
-      <div className='purple'></div>
-
+    
+        <div className='red'></div> 
+        <div className='orange'></div>
+        <div className='yellow'></div>
+        <div className='green'></div>
+        <div className='blue'></div>
+        <div className='purple'></div>
+      
     </div>
   );
 
