@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import MyComponent from './MyComponent';
 // import './index.css';
-import Test from './test';
-import Test2 from './test2';
+// import Test from './test';
+// import Test2 from './test2';
 // import ClassComponent from './ClassComponent';
-import App from './App';
+// import App from './App';
+import props from './MyComponent';
 
 
 // import reportWebVitals from './reportWebVitals';
@@ -12,9 +14,9 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Test />
-    <Test2/>
-    <App />
+
+    <MyComponent author="김유진" price="13,500원" part="자기계발서"/>
+    
   </React.StrictMode>
 );
 
