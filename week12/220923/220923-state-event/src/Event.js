@@ -1,14 +1,20 @@
-import React, {Component} from "react";
+import React, {Component, useState} from "react";
 
-class Event extends Component {
-    render(){
-        return(
-            <div>
-                <h1>리액트의 이벤트!</h1>
-            </div>
-        );
+function Event(){
+    function clickEvent(e){
+        console.log(e);
     }
-    
+    function aClick(e){
+        e.preventDefault();
+        console.log("aClick");
+        console.log(e);
+    }
+    return(
+        <div>
+            <a href="#" onClick={aClick}>a TAG</a>
+            <button onClick={clickEvent}>Click!</button>
+        </div>
+    )
 }
-
+   
 export default Event;
