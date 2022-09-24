@@ -8,13 +8,17 @@ import ReactDOM from 'react-dom/client';
 // import PracticeState from './PracticeState';
 // import Event from './Event';
 
-import PracticeEvent from './PracticeEvent';
+// import PracticeEvent from './PracticeEvent';
+
+import Sample from './Sample';
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
 
-  <PracticeEvent />
+  <Sample />
   </React.StrictMode>
 );
 
