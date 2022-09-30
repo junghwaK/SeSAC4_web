@@ -12,11 +12,14 @@ import UseSass from './UseSass'
 
 import CssModule from './CssModule'; 
 import StyledComponent from './StyledComponent'; 
+import PracticeSass from './PracticeSass';
 
+import Animation from './Animation';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Animation />
     <Origin />
     <hr />
     <UseSass />
@@ -24,6 +27,10 @@ root.render(
     <CssModule />
     <StyledComponent />
 
+    <hr />
+    <PracticeSass />
+
+    <hr />
   </React.StrictMode>
 
 );
