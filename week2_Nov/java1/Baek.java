@@ -1,3 +1,4 @@
+package week2_Nov.java1;
 public class Baek {
     public Baek(String name, String school, int age, int number) {
 		super(name, school, age, number);

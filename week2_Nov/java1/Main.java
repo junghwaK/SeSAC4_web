@@ -1,4 +1,4 @@
-package coding;
+package week2_Nov.java1;
 
 public class Main {
 
