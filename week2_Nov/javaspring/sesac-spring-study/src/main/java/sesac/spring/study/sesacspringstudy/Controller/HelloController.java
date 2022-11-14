@@ -17,15 +17,15 @@ public class HelloController {
 
         return "hi";
     }
-    @GetMapping("api")
-    public String getApi(@RequestParam(value="name", required = false) String name, Model model){
-        model.addAttribute("name", name);
-        return "api";
-
-    }
-    @GetMapping("api2/{name}")
-    public String getApi2(@PathVariable String name, Model model){
-        model.addAttribute("name",  n);
-        return name;
-    }
+//    @GetMapping("api")
+//    public String getApi(@RequestParam(value="name", required = false) String name, Model model){
+//        model.addAttribute("name", name);
+//        return "api";
+//
+//    }
+//    @GetMapping("api2/{name}")
+//    public String getApi2(@PathVariable String name, Model model){
+//        model.addAttribute("name",  name);
+//        return name;
+//    }
     }
