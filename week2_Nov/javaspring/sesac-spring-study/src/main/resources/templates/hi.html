@@ -6,6 +6,17 @@
 
 <body>
 <h1 th:text="${text}">hi</h1>
-<h2 th:text="${text}">Cheese chips</h2>
+<h2 th:text="${utext}">utext</h2>
+<input type="text">  </input>
+<p th:if="${age}<20" th:text="'10살은 세령이같은 미성년자'"></p>
+<p th:unless="${age}<20" th:text="'20살은 반항하는 성인 세령이'"></p>
+<tr>
+    <th>#</th>
+    <th>name</th>
+    <th>age</th>
+</tr>
+<tr th:each=""></tr>
+    <td th:each="name:${names}"></td>
+
 </body>
 </html>
