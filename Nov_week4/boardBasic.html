@@ -19,7 +19,7 @@
     <input type="button" value="작성" onclick="writeBoard()" />
     <hr />
     <table border="1" cellspacing="0" cellpadding="5" width="50%">
-      <
+      
         <td>No.</td>
         <td>이름</td>
         <td>내용</td>
@@ -41,7 +41,7 @@
         if (action.type === "DELETE") {
           let boards = Object.assign(state.boards); // 객체를 불러오는
           let filteredBoards = boards.filter((a) => a.no !== action.no);
-          return { cnt: state.cnt - 1, boards: filteredBoards };
+          return { cnt: state.cnt , boards: filteredBoards };
         }
       }
       var store = Redux.createStore(reducer);
