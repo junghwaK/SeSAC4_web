@@ -17,32 +17,52 @@
 <body>
     <div id="red">
         <h1>red</h1>
-        <button type="button" onclick="red();">red</button>
+        <!-- dispatch에 어떤행동을 취할건지 값을 보낸다.  -->
+        <button type="button" onclick="store.dispatch({type:'CAHNGE', color:'red'});">red</button>
     </div>
     <div id="green">
         <h1>green</h1>
-        <button type="button" onclick="green();">green</button>
+        <button type="button" onclick="store.dispatch({type:'CAHNGE', color:'green'});">green</button>
     </div>
     <div id="yellow">
         <h1>yellow</h1>
-        <button type="button" onclick="yellow();">yellow</button>
+        <button type="button" onclick="store.dispatch({type:'CAHNGE', color:'yellow'});">yellow</button>
     </div>
 
     <script>
-        function red(){
-            document.querySelector('#red').style.backgroundColor = 'red';
-            document.querySelector('#green').style.backgroundColor = 'red';
-            document.querySelector('#yellow').style.backgroundColor = 'red';
+        function reduce(state, action){
+            //state:현재상태 -> 변경되기 전,
+            //action : dispatch를 호출할 때 넣었던 객체
+            //reducer코드를 여기에 작성한다. 그래야 불러올 수 있다. 
+            //상태를 바꿀때는dispatch를 실행시킨다. 
+            if( action.type === 'CHANGE'){
+                return { color: action.color };
+            }
         }
-        function green(){
-            document.querySelector('#red').style.backgroundColor = 'green';
-            document.querySelector('#green').style.backgroundColor = 'green';
-            document.querySelector('#yellow').style.backgroundColor = 'green';
-        }
-        function yellow(){
-            document.querySelector('#red').style.backgroundColor = 'yellow';
-            document.querySelector('#green').style.backgroundColor = 'yellow';
-            document.querySelector('#yellow').style.backgroundColor = 'yellow';
+        let store = Redux.createStore(reducer);
+        // function red(){
+        //     let state = store.getState(); //{color: ~~}
+        //     document.querySelector('#red').style.backgroundColor = state.color;
+        // }
+        // function green(){
+        //     let state = store.getState();
+        //     document.querySelector('#green').style.backgroundColor = 'green';
+     
+        // }
+        // function yellow(){
+        //     let state = store.getState();
+        //     document.querySelector('#yellow').style.backgroundColor = 'yellow';
+        // }
+        //본인 div의 색만 바꾸는것, 현재상태ㅐstate에 따라 달라진다. 
+        //subscribe는 한번에 여러개를 등록할 수 도 있다. 
+        // store.subscribe(red);
+        // store.subscribe(green);
+        // store.subscribe(yellow);
+        function changeAll(){
+            let state = store.getState();
+            document.querySelector('#red').style.backgroundColor = state.color;
+            document.querySelector('#green').style.backgroundColor = state.color;
+            document.querySelector('#yellow').style.backgroundColor = state.color;
         }
     </script>
 </body>
