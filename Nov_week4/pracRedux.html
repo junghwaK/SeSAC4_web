@@ -1,0 +1,63 @@
+<html>
+    <head>
+
+        <title>방명록</title>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.min.js"></script>
+
+        <style>
+            td {
+                width: 100px;
+                height: 30px;
+                padding-left: 10px;
+            }
+        </style>
+
+        <script>
+            function reducer(state, action) {
+                if ( state == undefined ) {
+                    return { cnt: 0 };
+                }
+                if (action.type === 'WRITE') {
+                    return {cnt: state.cnt + 1, boards: {no: state.cnt + 1, name: action.name, content: action.content}};
+                }
+            }
+
+            let store = Redux.createStore(reducer);
+
+            function writeBoard() {
+                let state = store.getState();
+                console.log(state);
+                let table = document.getElementById("boardTable");
+                let tr = document.createElement("tr");
+                let html = "<tr><td>" + state.boards.no + "</td><td>" + state.boards.name + "</td><td>" + state.boards.content + "</td><td><button>삭제</button></td></tr>";
+                tr.innerHTML = html;
+                table.append(tr);
+            }
+
+            store.subscribe(writeBoard);
+
+            function clicked() {
+                let name = document.querySelector("input[name='name']");
+                let content = document.querySelector("input[name='content']");
+                store.dispatch({type: 'WRITE', name: name.value, content: content.value});
+            }
+        </script>
+    </head>
+    <body>
+        이름 : <input type="text" name="name"> <br>
+        내용 : <input type="text" name="content">
+        <button onclick="clicked()">작성</button>
+
+        <hr>
+
+        <table id="boardTable" border="1" cellspacing="0">
+            <tr>
+                <td>No.</td>
+                <td>이름</td>
+                <td>내용</td>
+                <td>삭제</td>
+            </tr>
+        </table>
+    </body>
+</html>
