@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.6.0/redux.js"></script>
+    <title>Document</title>
+  </head>
+  <script>
+    const writeComment = () => {
+      const div = document.createElement("div");
+      document.body.append(div, e.target.value);
+    };
+  </script>
+  <body>
+    이름 : <input type="text" id="name" /> <br />
+    내용 : <input type="text" id="content" />
+    <input type="button" value="작성" onclick="writeBoard()" />
+    <hr />
+    <table border="1" cellspacing="0" cellpadding="5" width="50%">
+      <
+        <td>No.</td>
+        <td>이름</td>
+        <td>내용</td>
+        <td>삭제</td>
+      </tr>
+      <tbody id="tbody"></tbody>
+    </table>
+    <script>
+      function reducer(state, action) {
+        if (state === undefined) {
+          return { cnt: 0, boards: [] }; // state의 초기값을 세팅
+        }
+        if (action.type === "WRITE") {
+          // data = { name : ~~~, content: ~~~ }
+          let boards = [...state.boards, action.data]; //   [...state.boards];
+          // boards.push(action.data);
+          return { cnt: state.cnt + 1, boards: boards };
+        }
+        if (action.type === "DELETE") {
+          let boards = Object.assign(state.boards); // 객체를 불러오는
+          let filteredBoards = boards.filter((a) => a.no !== action.no);
+          return { cnt: state.cnt - 1, boards: filteredBoards };
+        }
+      }
+      var store = Redux.createStore(reducer);
+      function writeBoard() {
+        let state = store.getState();
+        let data = {
+          no: state.cnt,
+          name: document.querySelector("#name").value,
+          content: document.querySelector("#content").value,
+        };
+        store.dispatch({ type: "WRITE", data: data });
+      }
+      function deleteBoard(no) {
+        var state = store.getState();
+        store.dispatch({ type: "DELETE", no: no });
+      }
+      function getData() {
+        var state = store.getState();
+        var text = "";
+        console.log(state);
+        for (board of state.boards) {
+          text += `<tr>
+                    <td>${board.no}</td>
+                    <td>${board.name}</td>
+                    <td>${board.content}</td>
+                    <td>
+                        <button type="button" onclick= "deleteBoard(${board.no});">삭제</button>
+                    </td>
+                </tr>`;
+        }
+        document.querySelector("#tbody").innerHTML = text;
+      }
+      store.subscribe(getData);
+      getData();
+    </script>
+  </body>
+</html>
