@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 3px solid black;
+            width: 150px;
+            height: 150px;
+            text-align: center; 
+        }
+    </style>
+</head>
+<body>
+    <div id="red">
+        <h1>red</h1>
+        <button type="button" onclick="red();">red</button>
+    </div>
+    <div id="green">
+        <h1>green</h1>
+        <button type="button" onclick="green();">green</button>
+    </div>
+    <div id="yellow">
+        <h1>yellow</h1>
+        <button type="button" onclick="yellow();">yellow</button>
+    </div>
+
+    <script>
+        function red(){
+            document.querySelector('#red').style.backgroundColor = 'red';
+            document.querySelector('#green').style.backgroundColor = 'red';
+            document.querySelector('#yellow').style.backgroundColor = 'red';
+        }
+        function green(){
+            document.querySelector('#red').style.backgroundColor = 'green';
+            document.querySelector('#green').style.backgroundColor = 'green';
+            document.querySelector('#yellow').style.backgroundColor = 'green';
+        }
+        function yellow(){
+            document.querySelector('#red').style.backgroundColor = 'yellow';
+            document.querySelector('#green').style.backgroundColor = 'yellow';
+            document.querySelector('#yellow').style.backgroundColor = 'yellow';
+        }
+    </script>
+</body>
+</html>

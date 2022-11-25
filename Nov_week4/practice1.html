@@ -1,0 +1,93 @@
+<!-- <html>
+    <head>
+        <title>redux</title>
+        <style>
+            #container {
+                width: 220px;
+                box-sizing: border-box;
+            }
+            .box {
+                border: 2px solid black;
+                height: 200px;
+                text-align: center;
+                padding: 10px;
+            }
+        </style>
+        <script>
+            function changeToRed() {
+                const container = document.getElementById("container");
+                container.style.backgroundColor = "red";
+            }
+            function changeToGreen() {
+                const container = document.getElementById("container");
+                container.style.backgroundColor = "green";
+            }
+            function changeToYellow() {
+                const container = document.getElementById("container");
+                container.style.backgroundColor = "yellow";
+            }
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <div class="box">
+                <h1>red</h1>
+                <button onclick="changeToRed();">실행</button>
+            </div>
+            <div class="box">
+                <h1>green</h1>
+                <button onclick="changeToGreen();">실행</button>
+            </div>
+            <div class="box">
+                <h1>yellow</h1>
+                <button onclick="changeToYellow();">실행</button>
+            </div>
+        </div>
+    </body>
+</html> -->
+
+<html>
+    <head>
+        <title>redux</title>
+        <style>
+            .box {
+                width: 100px;
+                border: 2px solid black;
+                height: 100px;
+                text-align: center;
+                padding: 10px;
+            }
+        </style>
+        <script>
+            function changeToRed() {
+                document.querySelector(".red_box").style.backgroundColor = "red";
+                document.querySelector(".green_box").style.backgroundColor = "red";
+                document.querySelector(".yellow_box").style.backgroundColor = "red";
+            }
+            function changeToGreen() {
+                document.querySelector(".red_box").style.backgroundColor = "green";
+                document.querySelector(".green_box").style.backgroundColor = "green";
+                document.querySelector(".yellow_box").style.backgroundColor = "green";
+            }
+            function changeToYellow() {
+                document.querySelector(".red_box").style.backgroundColor = "yellow";
+                document.querySelector(".green_box").style.backgroundColor = "yellow";
+                document.querySelector(".yellow_box").style.backgroundColor = "yellow";
+            }
+        </script>
+    </head>
+    <body>
+        <div class="box red_box">
+            <h1>red</h1>
+            <button onclick="changeToRed();">실행</button>
+        </div>
+        <div class="box green_box">
+            <h1>green</h1>
+            <button onclick="changeToGreen();">실행</button>
+        </div>
+        <div class="box yellow_box">
+            <h1>yellow</h1>
+            <button onclick="changeToYellow();">실행</button>
+        </div>
+    </body>
+</html>
