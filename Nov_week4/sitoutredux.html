@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.min.js">
+    </script>
     <title>Document</title>
     <style>
         div{
@@ -18,19 +20,19 @@
     <div id="red">
         <h1>red</h1>
         <!-- dispatch에 어떤행동을 취할건지 값을 보낸다.  -->
-        <button type="button" onclick="store.dispatch({type:'CAHNGE', color:'red'});">red</button>
+        <button type="button" onclick="store.dispatch({type:'CHANGE', color:'red'});">red</button>
     </div>
     <div id="green">
         <h1>green</h1>
-        <button type="button" onclick="store.dispatch({type:'CAHNGE', color:'green'});">green</button>
+        <button type="button" onclick="store.dispatch({type:'CHANGE', color:'green'});">green</button>
     </div>
     <div id="yellow">
         <h1>yellow</h1>
-        <button type="button" onclick="store.dispatch({type:'CAHNGE', color:'yellow'});">yellow</button>
+        <button type="button" onclick="store.dispatch({type:'CHANGE', color:'yellow'});">yellow</button>
     </div>
 
     <script>
-        function reduce(state, action){
+        function reducer(state, action){
             //state:현재상태 -> 변경되기 전,
             //action : dispatch를 호출할 때 넣었던 객체
             //reducer코드를 여기에 작성한다. 그래야 불러올 수 있다. 
@@ -60,10 +62,13 @@
         // store.subscribe(yellow);
         function changeAll(){
             let state = store.getState();
+            console.log(state);
             document.querySelector('#red').style.backgroundColor = state.color;
             document.querySelector('#green').style.backgroundColor = state.color;
             document.querySelector('#yellow').style.backgroundColor = state.color;
+
         }
+        store.subscribe(changeAll);
     </script>
 </body>
 </html>
