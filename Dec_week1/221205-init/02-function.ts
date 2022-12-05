@@ -1,5 +1,10 @@
 // function 함수이름 (변수명: 타입) : 반환타입 {}
 
+// const testfunction = () => {
+//     return 'test';
+// }
+// console.log(testfunction);
+
 function sum1(a, b) {
     return a + b;
 }
@@ -13,3 +18,4 @@ function sum3( a:number, b?:number):number {
     return a + b;
 }
 console.log( "sum3 : ", sum3(1) );
+
